@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: poi
   labels:
-    app: poiapp
+    app: poi
   namespace: azurehacker6003
 spec:
   replicas: 1
@@ -11,15 +11,17 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: poiapp
+      app: poi
   template:
     metadata:
       labels:
-        app: poiapp
+        app: poi
     spec:
       containers:
       - name: poi
         image: registrydxn3984.azurecr.io/tripinsights/poi:1.0
+        ports:
+        - containerPort: 80
         env:
         - name: SQL_SERVER
           value: sqlserverdxn3984
