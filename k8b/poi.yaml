@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poi
+  labels:
+    app: poiapp
+  namespace: azurehacker6003
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: poiapp
+  template:
+    metadata:
+      labels:
+        app: poi
+    spec:
+      containers:
+      - name: 
+        image: registrydxn3984.azurecr.io/tripinsights/poi:1.0
+        env:
+        - name: SQL_SERVER
+          value: sqlserverdxn3984
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production        
+        - name: SQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: sql-secret
+              key: username
+        - name: SQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sql-secret
+              key: password
