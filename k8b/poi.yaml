@@ -38,6 +38,8 @@ spec:
               name: sql-secret
               key: password
 
+
+---
 apiVersion: v1
 kind: Service
 metadata:
