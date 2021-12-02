@@ -27,7 +27,8 @@ spec:
           value: "http://userprofile:8083"
         - name: TRIPS_API_ENDPOINT
           value: "http://trips:8081"        
-
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
 
 ---
 apiVersion: v1
