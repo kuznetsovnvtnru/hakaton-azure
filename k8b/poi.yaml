@@ -45,11 +45,11 @@ kind: Service
 metadata:
   name: poi
   labels:
-    run: poi
+    app: poi
 spec:
   ports:
-  - port: 8080
-    targetPort: 80
+  - port: 80
+    targetPort: 8080
     protocol: TCP
   selector:
-    run: poi
+    app: poi

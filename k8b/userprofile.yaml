@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: userprofile
   labels:
-    app: userprofileapp
+    app: userprofile
   namespace: azurehacker6003
 spec:
   replicas: 1
@@ -11,18 +11,20 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: userprofileapp
+      app: userprofile
   template:
     metadata:
       labels:
         app: userprofile
     spec:
       containers:
-      - name: 
+      - name: userprofile 
         image: registrydxn3984.azurecr.io/tripinsights/userprofile:1.0
+        ports:
+        - containerPort: 80
         env:
         - name: SQL_SERVER
-          value: sqlserverdxn3984
+          value: sqlserverdxn3984.database.windows.net
         - name: SQL_USER
           valueFrom:
             secretKeyRef:
@@ -33,3 +35,18 @@ spec:
             secretKeyRef:
               name: sql-secret
               key: password
+              
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: userprofile
+  labels:
+    run: userprofile
+spec:
+  ports:
+  - port: 8083
+    targetPort: 80
+    protocol: TCP
+  selector:
+    run: userprofile
