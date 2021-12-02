@@ -48,9 +48,9 @@ metadata:
     app: poi
   namespace: api  
 spec:
-  externalName: poi3984.cluster.local
   ports:
-  - port: 8080
+  - name: poi
+    port: 8080
     targetPort: 80
     protocol: TCP
   selector:

@@ -24,7 +24,7 @@ spec:
         - containerPort: 80
         env:
         - name: USERPROFILE_API_ENDPOINT
-          value: "http://userprofile3984.cluster.local:8083"
+          value: "http://userprofile.api.svc.cluster.local:8083"
         - name: TRIPS_API_ENDPOINT
           value: "http://trips.api.svc.cluster.local:8081"        
         - name: ASPNETCORE_ENVIRONMENT
