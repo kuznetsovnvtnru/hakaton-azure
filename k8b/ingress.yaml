@@ -4,19 +4,17 @@ metadata:
   name: tripviewer-ingress
   labels:
     app: tripviewer-ingress
-  namespace: azurehacker6003
+  namespace: web
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: tripviewer
-            port:
-              number: 80
-      - path: /api/poi
+      - path: /api/poi(/|$)(.*)
         pathType: Prefix
         backend:
           service:
@@ -30,17 +28,24 @@ spec:
             name: userprofile
             port:
               number: 8083
-      - path: /api/trips
+      - path: /api/trips(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: trips
             port:
               number: 8081
-      - path: /api/user-java
+      - path: /api/user-java(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: user-java
             port:
               number: 8082
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: tripviewer
+            port:
+              number: 80        
