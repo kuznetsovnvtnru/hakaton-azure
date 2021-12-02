@@ -44,6 +44,8 @@ metadata:
     app: userprofile
   namespace: api  
 spec:
+  type: ExternalName
+  externalName: userprofile3984.cluster.local
   ports:
   - port: 8083
     targetPort: 80

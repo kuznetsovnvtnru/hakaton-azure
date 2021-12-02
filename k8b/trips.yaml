@@ -48,6 +48,8 @@ metadata:
     app: trips
   namespace: api  
 spec:
+  type: ExternalName
+  externalName: trips3984.cluster.local
   ports:
   - port: 8081
     targetPort: 80
