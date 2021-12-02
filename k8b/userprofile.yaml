@@ -44,8 +44,8 @@ metadata:
     app: userprofile
 spec:
   ports:
-  - port: 80
-    targetPort: 8083
+  - port: 8083
+    targetPort: 80
     protocol: TCP
   selector:
     app: userprofile
