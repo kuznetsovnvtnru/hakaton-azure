@@ -46,6 +46,7 @@ metadata:
   name: poi
   labels:
     app: poi
+  namespace: api  
 spec:
   ports:
   - port: 8080

@@ -42,6 +42,7 @@ metadata:
   name: user-java
   labels:
     app: user-java
+  namespace: api  
 spec:
   ports:
   - port: 8082
