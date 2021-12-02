@@ -5,7 +5,7 @@ metadata:
   namespace: api
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: view
 subjects:
 - kind: Group
@@ -19,7 +19,7 @@ metadata:
   namespace: api
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: edit
 subjects:
 - kind: Group
@@ -33,7 +33,7 @@ metadata:
   namespace: web
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: edit
 subjects:
 - kind: Group
@@ -46,7 +46,7 @@ metadata:
   namespace: web
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: view
 subjects:
 - kind: Group
