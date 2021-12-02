@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: trips
   labels:
-    app: tripsapp
+    app: trips
   namespace: azurehacker6003
 spec:
   replicas: 1
@@ -11,18 +11,20 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: tripsapp
+      app: trips
   template:
     metadata:
       labels:
         app: trips
     spec:
       containers:
-      - name: 
+      - name: trips
         image: registrydxn3984.azurecr.io/tripinsights/trips:1.0
+        ports:
+        - containerPort: 80
         env:
         - name: SQL_SERVER
-          value: sqlserverdxn3984
+          value: sqlserverdxn3984.database.windows.net
         - name: DOCS_URI
           value: "http://temp"        
         - name: SQL_USER
@@ -35,3 +37,17 @@ spec:
             secretKeyRef:
               name: sql-secret
               key: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trips
+  labels:
+    run: trips
+spec:
+  ports:
+  - port: 8081
+    targetPort: 80
+    protocol: TCP
+  selector:
+    run: trips

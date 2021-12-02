@@ -48,7 +48,8 @@ metadata:
     run: poi
 spec:
   ports:
-  - port: 80
+  - port: 8080
+    targetPort: 80
     protocol: TCP
   selector:
     run: poi
