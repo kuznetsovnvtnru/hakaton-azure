@@ -25,9 +25,9 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: tripviewer-ingress
+  name: api-tripviewer-ingress
   labels:
-    app: tripviewer-ingress
+    app: api-tripviewer-ingress
   namespace: api
   annotations:
     kubernetes.io/ingress.class: nginx
