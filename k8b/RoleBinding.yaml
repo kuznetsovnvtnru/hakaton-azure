@@ -9,8 +9,7 @@ roleRef:
   name: view
 subjects:
 - kind: Group
-  namespace: api
-  name: 6dbfb506-7d1a-465c-a955-9f03b3e20acb
+  name: 2ddcb1b7-0e12-4b8e-9d5d-e25b19a2af16
   
 ---
 kind: RoleBinding
@@ -24,7 +23,6 @@ roleRef:
   name: edit
 subjects:
 - kind: Group
-  namespace: api
   name: 6dbfb506-7d1a-465c-a955-9f03b3e20acb
   
 ---
@@ -39,7 +37,6 @@ roleRef:
   name: edit
 subjects:
 - kind: Group
-  namespace: web
   name: 2ddcb1b7-0e12-4b8e-9d5d-e25b19a2af16
 ---
 kind: RoleBinding
@@ -53,5 +50,4 @@ roleRef:
   name: view
 subjects:
 - kind: Group
-  namespace: web
-  name: 2ddcb1b7-0e12-4b8e-9d5d-e25b19a2af16
+  name: 6dbfb506-7d1a-465c-a955-9f03b3e20acb
