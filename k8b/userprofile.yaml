@@ -18,7 +18,7 @@ spec:
         app: userprofile
     spec:
       containers:
-      - name: userprofile 
+      - name: userprofile
         image: registrydxn3984.azurecr.io/tripinsights/userprofile:1.0
         ports:
         - containerPort: 80
@@ -35,18 +35,17 @@ spec:
             secretKeyRef:
               name: sql-secret
               key: password
-              
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: userprofile
   labels:
-    run: userprofile
+    app: userprofile
 spec:
   ports:
-  - port: 8083
-    targetPort: 80
+  - port: 80
+    targetPort: 8083
     protocol: TCP
   selector:
-    run: userprofile
+    app: userprofile

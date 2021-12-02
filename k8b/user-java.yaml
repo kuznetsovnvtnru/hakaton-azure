@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: user-java
   labels:
-    app: user-javaapp
+    app: user-java
   namespace: azurehacker6003
 spec:
   replicas: 1
@@ -11,18 +11,20 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: user-javaapp
+      app: user-java
   template:
     metadata:
       labels:
         app: user-java
     spec:
       containers:
-      - name: 
+      - name: user-java
         image: registrydxn3984.azurecr.io/tripinsights/user-java:1.0
+        ports:
+        - containerPort: 80
         env:
         - name: SQL_SERVER
-          value: sqlserverdxn3984
+          value: sqlserverdxn3984.database.windows.net
         - name: SQL_USER
           valueFrom:
             secretKeyRef:
@@ -33,3 +35,17 @@ spec:
             secretKeyRef:
               name: sql-secret
               key: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-java
+  labels:
+    app: user-java
+spec:
+  ports:
+  - port: 80
+    targetPort: 8082
+    protocol: TCP
+  selector:
+    app: user-java
