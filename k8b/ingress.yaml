@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: tripviewer-ingress
+  labels:
+    app: tripviewer-ingress
+  namespace: azurehacker6003
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: tripviewer
+            port:
+              number: 80
+      - path: /api/poi
+        pathType: Prefix
+        backend:
+          service:
+            name: poi
+            port:
+              number: 8080
+      - path: /api/user
+        pathType: Prefix
+        backend:
+          service:
+            name: userprofile
+            port:
+              number: 8083
+      - path: /api/trips
+        pathType: Prefix
+        backend:
+          service:
+            name: trips
+            port:
+              number: 8081
+      - path: /api/user-java
+        pathType: Prefix
+        backend:
+          service:
+            name: user-java
+            port:
+              number: 8082
