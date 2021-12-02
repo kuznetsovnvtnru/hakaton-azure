@@ -23,6 +23,8 @@ spec:
         ports:
         - containerPort: 80
         env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
         - name: SQL_SERVER
           value: sqlserverdxn3984.database.windows.net
         - name: DOCS_URI
