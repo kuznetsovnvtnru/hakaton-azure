@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: tripviewer
-        image: registrydxn3984.azurecr.io/tripviewer/tripviewer:1.0
+        image: registrydxn3984.azurecr.io/tripinsights/tripviewer:1.0
         ports:
         - containerPort: 80
         env:
