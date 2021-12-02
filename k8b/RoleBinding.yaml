@@ -1,13 +1,56 @@
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: api-rolebinding
+  name: api-rolebinding_view
   namespace: api
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: api_ro
+  name: view
 subjects:
 - kind: Group
   namespace: api
   name: 6dbfb506-7d1a-465c-a955-9f03b3e20acb
+  
+ kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: api-rolebinding_edit
+  namespace: api
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: edit
+subjects:
+- kind: Group
+  namespace: api
+  name: 6dbfb506-7d1a-465c-a955-9f03b3e20acb
+  
+ 
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: web-rolebinding_edit
+  namespace: web
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: edit
+subjects:
+- kind: Group
+  namespace: web
+  name: 2ddcb1b7-0e12-4b8e-9d5d-e25b19a2af16
+
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: web-rolebinding_view
+  namespace: web
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: view
+subjects:
+- kind: Group
+  namespace: web
+  name: 2ddcb1b7-0e12-4b8e-9d5d-e25b19a2af16
