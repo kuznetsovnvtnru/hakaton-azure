@@ -4,7 +4,7 @@ metadata:
   name: userprofile
   labels:
     app: userprofile
-  namespace: azurehacker6003
+  namespace: api
 spec:
   replicas: 1
   strategy:
