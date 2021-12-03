@@ -27,7 +27,7 @@ spec:
             memory: "1024Mi"
           requests:
             memory: "10Mi"    
-      restartPolicy: Never
+      restartPolicy: OnFailure
       terminationGracePeriodSeconds: 60      
             
 ---
