@@ -24,9 +24,11 @@ spec:
           protocol: TCP
         resources:
           limits:
-            memory: "4Gi"
+            memory: "5Gi"
+            cpu: "500m" 
           requests:
-            memory: "3Gi"    
+            memory: "4Gi"    
+            cpu: "250m"
            
 ---
 apiVersion: v1
