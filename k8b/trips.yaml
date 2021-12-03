@@ -30,7 +30,6 @@ spec:
             secretKeyRef:
               name: secrets-store-api-inline
               key: SQL_SERVER
-          value: sqlserverdxn3984.database.windows.net
         - name: DOCS_URI
           value: "http://temp"        
         - name: SQL_USER
