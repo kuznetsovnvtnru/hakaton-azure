@@ -4,6 +4,7 @@ metadata:
   name: insurance-deployment
   labels:
     deploy: insurance
+  namespace: web  
 spec:
   replicas: 1
   selector:
