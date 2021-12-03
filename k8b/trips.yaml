@@ -25,23 +25,8 @@ spec:
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: Development
-        - name: SQL_SERVER
-          valueFrom:
-            secretKeyRef:
-              name: secrets-store-api-inline
-              key: SQL_SERVER
         - name: DOCS_URI
           value: "http://temp"        
-        - name: SQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: secrets-store-api-inline
-              key: SQL_USER
-        - name: SQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: secrets-store-api-inline
-              key: SQL_PASSWORD
         volumeMounts:
         - name: secrets-store-api-inline
           mountPath: "/mnt/secrets-store"
