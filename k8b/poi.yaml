@@ -23,21 +23,8 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: SQL_SERVER
-          value: sqlserverdxn3984.database.windows.net
         - name: ASPNETCORE_ENVIRONMENT
           value: Development        
-        - name: SQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: sql-secret
-              key: username
-        - name: SQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: sql-secret
-              key: password
-
 
 ---
 apiVersion: v1
