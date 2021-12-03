@@ -26,7 +26,7 @@ spec:
           limits:
             memory: "4Gi"
           requests:
-            memory: "2Gi"    
+            memory: "3Gi"    
            
 ---
 apiVersion: v1
