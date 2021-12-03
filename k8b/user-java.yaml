@@ -24,7 +24,7 @@ spec:
         - containerPort: 80
         volumeMounts:
         - name: secrets-store-api-inline
-          mountPath: "/mnt/secrets-store"
+          mountPath: "/secrets"
           readOnly: true
       volumes:
         - name: secrets-store-api-inline
