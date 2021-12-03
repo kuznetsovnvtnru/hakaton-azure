@@ -25,7 +25,17 @@ spec:
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: Development        
-
+        volumeMounts:
+        - name: secrets-store-api-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
+      volumes:
+        - name: secrets-store-api-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: "azure-hack3-secretprovider"  
 ---
 apiVersion: v1
 kind: Service
